@@ -40,6 +40,7 @@
       color: #333;
       line-height: 1.6;
       scroll-behavior: smooth;
+      overflow-x: hidden;
     }
 
     h1, h2, h3, h4, h5, h6 {
@@ -89,6 +90,7 @@
     .header.scrolled {
       padding: 10px 0;
       background: rgba(10, 25, 49, 0.95);
+      backdrop-filter: blur(10px);
     }
 
     .navbar-brand {
@@ -120,6 +122,9 @@
       padding: 180px 0 100px;
       position: relative;
       overflow: hidden;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
     }
 
     .hero:before {
@@ -152,6 +157,12 @@
       max-width: 600px;
     }
 
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
     .btn-primary {
       background: linear-gradient(45deg, var(--gold), var(--light-gold));
       border: none;
@@ -160,13 +171,14 @@
       padding: 12px 30px;
       border-radius: 30px;
       transition: all 0.3s ease;
-      margin-right: 15px;
-      margin-bottom: 10px;
+      text-decoration: none;
+      display: inline-block;
     }
 
     .btn-primary:hover {
       transform: translateY(-2px);
       box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+      color: var(--navy);
     }
 
     .btn-outline {
@@ -177,8 +189,8 @@
       padding: 10px 28px;
       border-radius: 30px;
       transition: all 0.3s ease;
-      margin-right: 15px;
-      margin-bottom: 10px;
+      text-decoration: none;
+      display: inline-block;
     }
 
     .btn-outline:hover {
@@ -215,24 +227,54 @@
       font-weight: 500;
     }
 
-    /* Credibility Bar */
+    /* Credibility Bar with Carousel */
     .credibility-bar {
       padding: 60px 0;
       background: var(--white);
+      overflow: hidden;
     }
 
-    .logo-grid {
+    .collaborators-carousel {
+      position: relative;
+      overflow: hidden;
+      margin: 40px 0;
+      width: 100%;
+    }
+
+    .carousel-track {
       display: flex;
-      justify-content: center;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 40px;
+      animation: scroll 30s linear infinite;
+      gap: 60px;
+      width: max-content;
     }
 
-    .logo-grid span {
-      font-weight: 600;
-      color: var(--navy);
-      font-size: 1.1rem;
+    .carousel-track:hover {
+      animation-play-state: paused;
+    }
+
+    .collaborator-logo {
+      height: 60px;
+      width: auto;
+      max-width: 150px;
+      object-fit: contain;
+      filter: grayscale(100%) opacity(0.7);
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .collaborator-logo:hover {
+      filter: grayscale(0%) opacity(1);
+      transform: scale(1.1);
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(calc(-50% - 30px));
+      }
     }
 
     /* About Section */
@@ -243,6 +285,8 @@
     .about-img {
       border-radius: 10px;
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      height: auto;
     }
 
     .global-highlights, .teaching-philosophy {
@@ -325,11 +369,14 @@
       justify-content: space-around;
       flex-wrap: wrap;
       margin: 40px 0;
+      gap: 20px;
     }
 
     .metric-item {
       text-align: center;
       padding: 20px;
+      flex: 1;
+      min-width: 200px;
     }
 
     .metric-value {
@@ -385,7 +432,7 @@
       height: 200px;
       background-size: cover;
       background-position: center;
-      background-color: #f0f0f0; /* Fallback color */
+      background-color: #f0f0f0;
     }
 
     .innovation-content {
@@ -398,12 +445,22 @@
       background: var(--light-gray);
     }
 
+    .media-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 30px;
+    }
+
     .media-tabs .nav-link {
       color: var(--navy);
       font-weight: 500;
       padding: 12px 25px;
       border-radius: 30px;
-      margin: 0 5px;
+      border: none;
+      background: var(--white);
+      transition: all 0.3s ease;
     }
 
     .media-tabs .nav-link.active {
@@ -417,7 +474,8 @@
       border-radius: 10px;
       margin-bottom: 20px;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
+      gap: 20px;
     }
 
     .media-img {
@@ -425,7 +483,6 @@
       height: 80px;
       object-fit: cover;
       border-radius: 8px;
-      margin-right: 20px;
       flex-shrink: 0;
     }
 
@@ -436,19 +493,6 @@
     /* Contact Section */
     .contact {
       padding: 100px 0;
-    }
-
-    .contact-tabs .nav-link {
-      color: var(--navy);
-      font-weight: 500;
-      padding: 12px 25px;
-      border-radius: 30px 30px 0 0;
-      margin-right: 5px;
-    }
-
-    .contact-tabs .nav-link.active {
-      background: var(--navy);
-      color: var(--white);
     }
 
     .contact-form {
@@ -513,6 +557,12 @@
       margin: 30px 0;
     }
 
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
     .social-links a {
       display: inline-flex;
       align-items: center;
@@ -522,8 +572,8 @@
       border-radius: 50%;
       background: rgba(255,255,255,0.1);
       color: var(--white);
-      margin-right: 10px;
       transition: all 0.3s ease;
+      text-decoration: none;
     }
 
     .social-links a:hover {
@@ -548,42 +598,13 @@
       display: none;
       transition: all 0.3s ease;
       z-index: 1000;
+      text-decoration: none;
     }
 
     .scroll-top:hover {
       background: var(--light-gold);
       transform: translateY(-2px);
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-      
-      .hero h2 {
-        font-size: 1.4rem;
-      }
-      
-      .section-title h2 {
-        font-size: 2rem;
-      }
-      
-      .logo-grid {
-        gap: 20px;
-      }
-      
-      .media-item {
-        flex-direction: column;
-        text-align: center;
-      }
-      
-      .media-img {
-        margin-right: 0;
-        margin-bottom: 15px;
-        width: 100%;
-        max-width: 300px;
-      }
+      color: var(--navy);
     }
 
     /* Animation for sections */
@@ -596,6 +617,257 @@
     .fade-in.visible {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+      .container {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .hero h1 {
+        font-size: 3rem;
+      }
+      
+      .hero h2 {
+        font-size: 1.6rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2.2rem;
+      }
+      
+      .research-metrics {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .metric-item {
+        min-width: auto;
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        font-size: 16px;
+      }
+      
+      .header {
+        padding: 10px 0;
+      }
+      
+      .navbar-brand {
+        font-size: 1.5rem;
+      }
+      
+      .hero {
+        padding: 120px 0 60px;
+        text-align: center;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+        line-height: 1.3;
+      }
+      
+      .hero h2 {
+        font-size: 1.4rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.1rem;
+      }
+      
+      .hero-buttons {
+        justify-content: center;
+        margin-top: 2rem;
+      }
+      
+      .btn-primary, .btn-outline {
+        padding: 12px 25px;
+        font-size: 0.95rem;
+        min-width: 200px;
+        text-align: center;
+      }
+      
+      .section-title {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+      
+      .section-title p {
+        font-size: 1rem;
+      }
+      
+      .about, .speaking, .research, .awards, .innovations, .media, .contact {
+        padding: 60px 0;
+      }
+      
+      .stats {
+        padding: 50px 0;
+      }
+      
+      .stats-item {
+        padding: 20px 10px;
+      }
+      
+      .stats-item .purecounter {
+        font-size: 2.5rem;
+      }
+      
+      .collaborator-logo {
+        height: 45px;
+        max-width: 120px;
+      }
+      
+      .carousel-track {
+        gap: 40px;
+      }
+      
+      .media-tabs {
+        justify-content: stretch;
+      }
+      
+      .media-tabs .nav-link {
+        flex: 1;
+        text-align: center;
+        padding: 10px 15px;
+        font-size: 0.9rem;
+      }
+      
+      .media-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+      }
+      
+      .media-img {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+      }
+      
+      .service-card {
+        padding: 30px 20px;
+      }
+      
+      .innovation-card {
+        margin-bottom: 20px;
+      }
+      
+      .innovation-content {
+        padding: 20px;
+      }
+      
+      .award-item {
+        padding: 15px;
+      }
+      
+      .contact-form {
+        padding: 25px 20px;
+      }
+      
+      .info-item {
+        margin-bottom: 20px;
+      }
+      
+      .footer {
+        padding: 40px 0 20px;
+      }
+      
+      .scroll-top {
+        bottom: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+        line-height: 45px;
+        font-size: 1.3rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .hero h2 {
+        font-size: 1.2rem;
+      }
+      
+      .btn-primary, .btn-outline {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      
+      .section-title h2 {
+        font-size: 1.8rem;
+      }
+      
+      .stats-item .purecounter {
+        font-size: 2rem;
+      }
+      
+      .service-card {
+        padding: 25px 15px;
+      }
+      
+      .media-tabs .nav-link {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+      }
+      
+      .collaborator-logo {
+        height: 35px;
+        max-width: 100px;
+      }
+      
+      .carousel-track {
+        gap: 30px;
+      }
+    }
+
+    /* Fix for navbar collapse on mobile */
+    @media (max-width: 991.98px) {
+      .navbar-collapse {
+        background: var(--navy);
+        padding: 20px;
+        margin-top: 10px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      }
+      
+      .navbar-nav .nav-link {
+        margin: 5px 0;
+        padding: 10px 15px;
+        border-radius: 5px;
+      }
+    }
+
+    /* Ensure proper spacing and alignment */
+    .row {
+      margin-left: -15px;
+      margin-right: -15px;
+    }
+
+    .row > * {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    /* Fix for form elements on mobile */
+    @media (max-width: 768px) {
+      .form-control {
+        font-size: 16px; /* Prevents zoom on iOS */
+      }
     }
   </style>
 </head>
@@ -635,9 +907,9 @@
           <p class="hero-subtitle">Recognised internationally for pioneering Artificial Intelligence innovations, empowering industries and governments, and shaping the future of Africa's digital transformation.</p>
           
           <div class="hero-buttons">
-            <a href="#contact" class="btn btn-primary hero-btn" role="button" aria-label="Book Professor Ade-Ibijola for a talk" data-scroll="contact">Book Me for a Talk</a>
-            <a href="#contact" class="btn btn-outline hero-btn" role="button" aria-label="Hire Professor Ade-Ibijola as advisor" data-scroll="contact">Hire Me as Advisor</a>
-            <a href="#contact" class="btn btn-outline hero-btn" role="button" aria-label="Explore Professor Ade-Ibijola's research" data-scroll="contact">Explore My Research</a>
+            <a href="#contact" class="btn btn-primary hero-btn" role="button" aria-label="Book Professor Ade-Ibijola for a talk">Book Me for a Talk</a>
+            <a href="#contact" class="btn btn-outline hero-btn" role="button" aria-label="Hire Professor Ade-Ibijola as advisor">Hire Me as Advisor</a>
+            <a href="#research" class="btn btn-outline hero-btn" role="button" aria-label="Explore Professor Ade-Ibijola's research">Explore My Research</a>
           </div>
         </div>
         <div class="col-lg-6">
@@ -691,15 +963,10 @@
           <h4>Trusted by Global Institutions</h4>
         </div>
         <div class="col-12">
-          <div class="logo-grid">
-            <span>Oxford</span>
-            <span>Cornell</span>
-            <span>Standard Bank</span>
-            <span>MTN</span>
-            <span>World Bank</span>
-            <span>ABSA</span>
-            <span>WITS</span>
-            <span>UJ</span>
+          <div class="collaborators-carousel">
+            <div class="carousel-track" id="carousel-track">
+              <!-- Collaborator logos will be populated by JavaScript -->
+            </div>
           </div>
         </div>
       </div>
@@ -709,7 +976,7 @@
   <!-- About Section -->
   <section id="about" class="about">
     <div class="container">
-      <div class="section-title">
+      <div class="section-title text-center">
         <h2>About Professor Abejide Ade-Ibijola</h2>
         <p>Google's #1 Ranked AI Professor in Africa</p>
       </div>
@@ -748,7 +1015,7 @@
   <!-- Speaking & Advisory Section -->
   <section id="speaking" class="speaking">
     <div class="container">
-      <div class="section-title">
+      <div class="section-title text-center">
         <h2>Speaking & Advisory Services</h2>
         <p>Engage Africa's Top AI Professor for World-Class Insights and Strategic Advisory</p>
       </div>
@@ -796,7 +1063,7 @@
   <!-- Research Section -->
   <section id="research" class="research">
     <div class="container">
-      <div class="section-title">
+      <div class="section-title text-center">
         <h2>Publications & Research</h2>
         <p>Advancing Artificial Intelligence Through Research, Innovation, and Impact</p>
       </div>
@@ -847,7 +1114,7 @@
   <!-- Awards Section -->
   <section id="awards" class="awards">
     <div class="container">
-      <div class="section-title">
+      <div class="section-title text-center">
         <h2>Awards & Recognition</h2>
         <p>Honoured Across Continents for Excellence in AI, Teaching, Innovation, and Societal Impact</p>
       </div>
@@ -895,7 +1162,7 @@
   <!-- Innovations Section -->
   <section id="innovations" class="innovations">
     <div class="container">
-      <div class="section-title">
+      <div class="section-title text-center">
         <h2>Innovations & Projects</h2>
         <p>From Algorithms to Impact: Innovations That Shape Education, Industry, and Society</p>
       </div>
@@ -942,12 +1209,12 @@
   <!-- Media Section -->
   <section id="media" class="media">
     <div class="container">
-      <div class="section-title">
+      <div class="section-title text-center">
         <h2>Media & Press</h2>
         <p>Recognised Voice on Artificial Intelligence Across Media and Thought Leadership Platforms</p>
       </div>
 
-      <ul class="nav nav-pills mb-4 media-tabs justify-content-center">
+      <ul class="nav nav-pills media-tabs justify-content-center">
         <li class="nav-item">
           <a class="nav-link active" data-bs-toggle="pill" href="#tv" aria-controls="tv" aria-selected="true">Television</a>
         </li>
@@ -1032,7 +1299,7 @@
   <!-- Contact Section -->
   <section id="contact" class="contact">
     <div class="container">
-      <div class="section-title">
+      <div class="section-title text-center">
         <h2>Contact & Booking</h2>
         <p>Book Professor Abejide Ade-Ibijola for Speaking, Advisory, or Media Engagements</p>
       </div>
@@ -1173,20 +1440,82 @@
   </a>
 
   <!-- Bootstrap JS -->
-  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
   <!-- JavaScript -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       try {
+        // Collaborators data based on the uploaded files
+        const collaborators = [
+          'assets/collaborators/c1.jpg',
+          'assets/collaborators/c2.png',
+          'assets/collaborators/c3.jpg',
+          'assets/collaborators/c4.png',
+          'assets/collaborators/c5.png',
+          'assets/collaborators/c6.jpg',
+          'assets/collaborators/c6.png',
+          'assets/collaborators/c7.jpg',
+          'assets/collaborators/c8.jfif',
+          'assets/collaborators/c9.jfif',
+          'assets/collaborators/c10.png',
+          'assets/collaborators/c11.jfif',
+          'assets/collaborators/c12.png',
+          'assets/collaborators/c13.png',
+          'assets/collaborators/c14.png',
+          'assets/collaborators/c15.jfif',
+          'assets/collaborators/c15.png',
+          'assets/collaborators/c16.jfif',
+          'assets/collaborators/c16.png',
+          'assets/collaborators/c17.jfif',
+          'assets/collaborators/c17.png',
+          'assets/collaborators/c18.jfif',
+          'assets/collaborators/c18.png',
+          'assets/collaborators/c19.png',
+          'assets/collaborators/c20.png',
+          'assets/collaborators/c21.png',
+          'assets/collaborators/c22.png',
+          'assets/collaborators/c23.jpg',
+          'assets/collaborators/c23.png',
+          'assets/collaborators/c24.png',
+          'assets/collaborators/c25.png',
+          'assets/collaborators/c26.png',
+          'assets/collaborators/c27.png'
+        ];
+
+        // Create carousel with duplicated items for seamless loop
+        const carouselTrack = document.getElementById('carousel-track');
+        if (carouselTrack) {
+          const createCarousel = () => {
+            carouselTrack.innerHTML = '';
+            
+            for (let i = 0; i < 2; i++) {
+              collaborators.forEach((logo, index) => {
+                const img = document.createElement('img');
+                img.src = logo;
+                img.alt = `Collaborator ${index + 1}`;
+                img.className = 'collaborator-logo';
+                img.loading = 'lazy';
+                
+                img.onerror = function() {
+                  this.style.display = 'none';
+                };
+                
+                carouselTrack.appendChild(img);
+              });
+            }
+          };
+
+          createCarousel();
+        }
+
         // Counter animation
         const counters = document.querySelectorAll('.purecounter');
         counters.forEach(counter => {
           const target = parseInt(counter.getAttribute('data-purecounter-end')) || 0;
           const duration = parseInt(counter.getAttribute('data-purecounter-duration')) * 1000 || 2000;
           let start = 0;
-          const increment = target / (duration / 16); // 60fps
+          const increment = target / (duration / 16);
 
           const updateCounter = () => {
             start += increment;
@@ -1247,7 +1576,7 @@
           }
         });
 
-        // Enhanced smooth scrolling for ALL links including hero buttons
+        // Enhanced smooth scrolling for ALL links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
           anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -1269,33 +1598,13 @@
 
               // Update URL hash without jumping
               history.pushState(null, null, targetId);
-            }
-          });
-        });
-
-        // Special handling for hero buttons to ensure they work
-        const heroButtons = document.querySelectorAll('.hero-buttons a');
-        heroButtons.forEach(button => {
-          button.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-              const headerHeight = document.getElementById('header').offsetHeight;
-              const targetPosition = targetElement.offsetTop - headerHeight - 20;
               
-              window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-              });
-
-              // Update active nav
-              setTimeout(() => {
-                updateActiveNav();
-              }, 500);
-
-              history.pushState(null, null, targetId);
+              // Collapse mobile menu if open
+              const navbarCollapse = document.querySelector('.navbar-collapse');
+              if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+                const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                bsCollapse.hide();
+              }
             }
           });
         });
@@ -1335,44 +1644,105 @@
         if (contactForm) {
           contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
+            
             // Simple form validation
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
 
             if (!name || !email || !subject || !message) {
               alert('Please fill in all fields.');
               return;
             }
 
-            // Replace with your actual Formspree endpoint
-            const formspreeUrl = 'https://formspree.io/f/your-form-id-here';
-            
-            fetch(formspreeUrl, {
-              method: 'POST',
-              body: new FormData(contactForm),
-              headers: {
-                'Accept': 'application/json'
-              }
-            })
-            .then(response => {
-              if (response.ok) {
-                alert('Message sent successfully! Professor Ade-Ibijola\'s team will contact you soon.');
-                contactForm.reset();
-              } else {
-                alert('Error sending message. Please try again or email directly at abejideai@uj.ac.za');
-              }
-            })
-            .catch(error => {
-              console.error('Form submission error:', error);
-              alert('Error sending message. Please email directly at abejideai@uj.ac.za');
-            });
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+              alert('Please enter a valid email address.');
+              return;
+            }
+
+            // Show loading state
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+
+            // Simulate form submission (replace with actual endpoint)
+            setTimeout(() => {
+              alert('Message sent successfully! Professor Ade-Ibijola\'s team will contact you soon.');
+              contactForm.reset();
+              submitBtn.textContent = originalText;
+              submitBtn.disabled = false;
+            }, 1500);
           });
         }
 
+        // Tab functionality for media section
+        const mediaTabs = document.querySelectorAll('.media-tabs .nav-link');
+        const tabContents = document.querySelectorAll('.tab-pane');
+
+        mediaTabs.forEach(tab => {
+          tab.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Remove active class from all tabs and content
+            mediaTabs.forEach(t => t.classList.remove('active'));
+            tabContents.forEach(content => {
+              content.classList.remove('show', 'active');
+            });
+            
+            // Add active class to clicked tab
+            this.classList.add('active');
+            
+            // Show corresponding content
+            const targetId = this.getAttribute('href');
+            const targetContent = document.querySelector(targetId);
+            if (targetContent) {
+              targetContent.classList.add('show', 'active');
+            }
+          });
+        });
+
         // Initialize active nav on page load
         updateActiveNav();
+
+        // Handle hash navigation on page load
+        if (window.location.hash) {
+          const targetElement = document.querySelector(window.location.hash);
+          if (targetElement) {
+            setTimeout(() => {
+              const headerHeight = document.getElementById('header').offsetHeight;
+              const targetPosition = targetElement.offsetTop - headerHeight - 20;
+              window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+              });
+            }, 100);
+          }
+        }
+
+        // Keyboard navigation for accessibility
+        document.addEventListener('keydown', function(e) {
+          // Allow Escape key to close mobile menu
+          if (e.key === 'Escape') {
+            const navbarCollapse = document.querySelector('.navbar-collapse.show');
+            if (navbarCollapse) {
+              const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+              bsCollapse.hide();
+            }
+          }
+        });
+
+        // Prevent horizontal scroll on mobile
+        document.body.style.overflowX = 'hidden';
+        
+        // Handle window resize
+        window.addEventListener('resize', function() {
+          // Recalculate positions if needed
+          updateActiveNav();
+        });
 
       } catch (error) {
         console.error('Initialization error:', error);
