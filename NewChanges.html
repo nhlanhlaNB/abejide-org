@@ -119,6 +119,55 @@
       to { opacity: 1; transform: translateX(0); }
     }
 
+    /* Coming Together Animations - Elements converge smoothly */
+    @keyframes cometogether1 {
+      0% { transform: translate(-40px, 40px) scale(0.7); opacity: 0.3; }
+      50% { transform: translate(-20px, 20px) scale(0.85); opacity: 0.65; }
+      100% { transform: translate(0, 0) scale(1); opacity: 1; }
+    }
+
+    @keyframes cometogether2 {
+      0% { transform: translate(40px, 40px) scale(0.7); opacity: 0.3; }
+      50% { transform: translate(20px, 20px) scale(0.85); opacity: 0.65; }
+      100% { transform: translate(0, 0) scale(1); opacity: 1; }
+    }
+
+    @keyframes cometogether3 {
+      0% { transform: translate(-40px, -40px) scale(0.7); opacity: 0.3; }
+      50% { transform: translate(-20px, -20px) scale(0.85); opacity: 0.65; }
+      100% { transform: translate(0, 0) scale(1); opacity: 1; }
+    }
+
+    @keyframes cometogether4 {
+      0% { transform: translate(40px, -40px) scale(0.7); opacity: 0.3; }
+      50% { transform: translate(20px, -20px) scale(0.85); opacity: 0.65; }
+      100% { transform: translate(0, 0) scale(1); opacity: 1; }
+    }
+
+    @keyframes converge {
+      0% { transform: scale(0.8) translateZ(0); opacity: 0.5; }
+      100% { transform: scale(1) translateZ(0); opacity: 1; }
+    }
+
+    /* Image coming from back with depth effect */
+    @keyframes depthComeForward {
+      0% {
+        transform: scale(0.5) translateZ(-100px) perspective(1000px) rotateX(20deg);
+        opacity: 0;
+        filter: blur(20px);
+      }
+      50% {
+        transform: scale(0.75) translateZ(-50px) perspective(1000px) rotateX(10deg);
+        opacity: 0.5;
+        filter: blur(10px);
+      }
+      100% {
+        transform: scale(1) translateZ(0) perspective(1000px) rotateX(0deg);
+        opacity: 1;
+        filter: blur(0);
+      }
+    }
+
     /* Header Styles */
     .header {
       background: rgba(245, 245, 245, 0.95);
@@ -229,15 +278,17 @@
 
     .hero-subtitle .cursor {
       display: inline-block;
-      background-color: var(--accent-warm);
-      margin-left: 0.1rem;
-      width: 3px;
+      color: var(--accent-warm);
+      margin-left: 0.2rem;
+      font-weight: 300;
+      font-size: 1.8rem;
+      line-height: 1;
       animation: blink 1s infinite;
     }
 
     @keyframes blink {
-      0%, 49% { background-color: var(--accent-warm); }
-      50%, 100% { background-color: transparent; }
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0.3; }
     }
 
     .hero-description {
@@ -257,12 +308,37 @@
       animation: fadeInUp 0.8s ease 0.6s forwards;
     }
 
+    .hero-trusted-section {
+      margin-top: 40px;
+      opacity: 0;
+      animation: fadeInUp 1s ease 0.9s forwards;
+    }
+
+    .hero-trusted-label {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      margin: 0;
+      padding-bottom: 15px;
+      border-bottom: 2px solid rgba(184, 134, 11, 0.3);
+      display: inline-block;
+    }
+
+    .hero-trusted-section .collaborators-carousel {
+      margin: 0;
+    }
+
+    .hero-trusted-section .carousel-track {
+      animation: scroll 40s linear infinite;
+    }
+
     .hero-profile-img {
       border-radius: 20px;
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
       opacity: 0;
       transform: scale(0.9);
-      animation: fadeInScale 1s ease 0.3s forwards;
+      animation: depthComeForward 2.5s ease-out 0.5s forwards;
     }
 
     @keyframes fadeInScale {
@@ -386,12 +462,30 @@
       padding: 30px 15px;
       opacity: 0;
       animation: fadeInUp 0.6s ease forwards, glowBox 3s ease-in-out 0.5s infinite;
+      transition: all 0.5s ease;
     }
 
     .stats-item:nth-child(1) { animation-delay: 0.1s, 0.5s; }
     .stats-item:nth-child(2) { animation-delay: 0.2s, 0.6s; }
     .stats-item:nth-child(3) { animation-delay: 0.3s, 0.7s; }
     .stats-item:nth-child(4) { animation-delay: 0.4s, 0.8s; }
+
+    /* Coming together on hover */
+    .stats-item:hover {
+      animation: cometogether1 2.5s ease-out forwards;
+    }
+
+    .stats-item:nth-child(2):hover {
+      animation: cometogether2 2.5s ease-out forwards;
+    }
+
+    .stats-item:nth-child(3):hover {
+      animation: cometogether3 2.5s ease-out forwards;
+    }
+
+    .stats-item:nth-child(4):hover {
+      animation: cometogether4 2.5s ease-out forwards;
+    }
 
     .stats-item i {
       font-size: 2.5rem;
@@ -463,6 +557,37 @@
       100% {
         transform: translateX(calc(-50% - 30px));
       }
+    }
+
+    /* Credibility Box Section */
+    .credibility-box {
+      padding: 50px 0;
+      background: linear-gradient(135deg, rgba(184, 134, 11, 0.08), rgba(0, 0, 0, 0.05));
+      border-top: 1px solid rgba(184, 134, 11, 0.2);
+      border-bottom: 1px solid rgba(184, 134, 11, 0.2);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .credibility-content {
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    .credibility-title {
+      text-align: center;
+      color: var(--text-dark);
+      font-weight: 700;
+      font-size: 1.5rem;
+      margin-bottom: 35px;
+      letter-spacing: 0.5px;
+    }
+
+    .credibility-box .collaborators-carousel {
+      margin: 0;
+    }
+
+    .credibility-box .carousel-track {
+      animation: scroll 40s linear infinite;
     }
 
     /* About Section */
@@ -564,8 +689,20 @@
     .service-card:nth-child(4) { animation-delay: 0.4s; }
 
     .service-card:hover {
-      transform: scale(1.02);
+      animation: cometogether1 2.5s ease-out forwards;
       box-shadow: 0 15px 40px rgba(184, 134, 11, 0.25), inset 0 0 20px rgba(255, 255, 255, 0.15);
+    }
+
+    .service-card:nth-child(2):hover {
+      animation: cometogether2 2.5s ease-out forwards;
+    }
+
+    .service-card:nth-child(3):hover {
+      animation: cometogether3 2.5s ease-out forwards;
+    }
+
+    .service-card:nth-child(4):hover {
+      animation: cometogether4 2.5s ease-out forwards;
     }
 
     .service-card .icon {
@@ -695,8 +832,16 @@
     }
 
     .award-item:hover {
-      transform: scale(1.02);
+      animation: cometogether1 2.5s ease-out forwards;
       box-shadow: 0 15px 40px rgba(184, 134, 11, 0.25), inset 0 0 20px rgba(255, 255, 255, 0.15);
+    }
+
+    .award-item:nth-child(2):hover {
+      animation: cometogether2 2.5s ease-out forwards;
+    }
+
+    .award-item:nth-child(3):hover {
+      animation: cometogether3 2.5s ease-out forwards;
     }
 
     .award-item h5 {
@@ -737,8 +882,20 @@
     .innovation-card:nth-child(6) { animation-delay: 0.5s; }
 
     .innovation-card:hover {
-      transform: scale(1.02);
+      animation: cometogether1 2.5s ease-out forwards;
       box-shadow: 0 15px 40px rgba(184, 134, 11, 0.25), inset 0 0 20px rgba(255, 255, 255, 0.15);
+    }
+
+    .innovation-card:nth-child(2):hover {
+      animation: cometogether2 2.5s ease-out forwards;
+    }
+
+    .innovation-card:nth-child(3):hover {
+      animation: cometogether3 2.5s ease-out forwards;
+    }
+
+    .innovation-card:nth-child(4):hover {
+      animation: cometogether4 2.5s ease-out forwards;
     }
 
     .innovation-img {
@@ -835,8 +992,16 @@
     .media-item:nth-child(3) { animation-delay: 0.2s; }
 
     .media-item:hover {
-      transform: scale(1.02);
+      animation: cometogether1 2.5s ease-out forwards;
       box-shadow: 0 15px 40px rgba(184, 134, 11, 0.25), inset 0 0 20px rgba(255, 255, 255, 0.15);
+    }
+
+    .media-item:nth-child(2):hover {
+      animation: cometogether2 2.5s ease-out forwards;
+    }
+
+    .media-item:nth-child(3):hover {
+      animation: cometogether3 2.5s ease-out forwards;
     }
 
     .media-img {
@@ -1484,10 +1649,28 @@
             <a href="#contact" class="btn btn-outline hero-btn" role="button" aria-label="Hire Professor Ade-Ibijola as advisor">Hire Me as Advisor</a>
             <a href="#research" class="btn btn-outline hero-btn" role="button" aria-label="Explore Professor Ade-Ibijola's research">Explore My Research</a>
           </div>
+
+          <div class="hero-trusted-section">
+            <p class="hero-trusted-label">Trusted by Global Institutions</p>
+          </div>
         </div>
         <div class="col-lg-6">
           <!-- Updated to use your local image -->
           <img src="assets/img/profNew.jpg" class="img-fluid hero-profile-img" alt="Professor Abejide Ade-Ibijola" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Credibility Box Section -->
+  <section class="credibility-box">
+    <div class="container">
+      <div class="credibility-content">
+        <h3 class="credibility-title">Trusted by Global Institutions</h3>
+        <div class="collaborators-carousel">
+          <div class="carousel-track" id="carousel-track">
+            <!-- Collaborator logos will be populated by JavaScript -->
+          </div>
         </div>
       </div>
     </div>
@@ -1523,24 +1706,6 @@
             <i class="bi bi-people"></i>
             <span class="purecounter" data-purecounter-start="0" data-purecounter-end="3000" data-purecounter-duration="2">0</span>
             <p><strong>Students Mentored</strong></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Credibility Bar -->
-  <section class="credibility-bar">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-12 text-center mb-4">
-          <h4>Trusted by Global Institutions</h4>
-        </div>
-        <div class="col-12">
-          <div class="collaborators-carousel">
-            <div class="carousel-track" id="carousel-track">
-              <!-- Collaborator logos will be populated by JavaScript -->
-            </div>
           </div>
         </div>
       </div>
