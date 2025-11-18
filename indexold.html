@@ -10,14 +10,14 @@
   <!-- Open Graph Meta Tags for Social Sharing -->
   <meta property="og:title" content="Professor Abejide Ade-Ibijola - Africa's Leading AI Professor">
   <meta property="og:description" content="Recognised globally for AI innovations, societal impact, and executive advisory.">
-  <meta property="og:image" content="assets/img/profNew.jpg">
+  <meta property="og:image" content="https://www.uj.ac.za/wp-content/uploads/2021/10/webinar-photos10.png">
   <meta property="og:url" content="https://www.abejide.org">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Fonts - Updated to match vusithembekwayo.com style -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
@@ -27,31 +27,25 @@
 
   <style>
     :root {
-      /* New Color Scheme with darkgoldenrod accent */
-      --primary-dark: #1A202C;    /* Charcoal for headers, footers */
-      --primary-medium: #2D3748;  /* Dark gray for secondary elements */
-      --accent-warm: #B8860B;     /* Darkgoldenrod for buttons, highlights */
-      --accent-earth: #DAA520;    /* Goldenrod for secondary accents */
-      --background-light: #F7FAFC; /* Off-white for light backgrounds */
-      --background-cream: #EDF2F7; /* Light cream for section backgrounds */
-      --text-dark: #2D3748;       /* Dark gray for main text */
-      --text-light: #4A5568;      /* Medium gray for subtext */
-      --cream-white: #ffffff;
-      --warm-gray: #4A5568;
-      --accent-orange: #B8860B;   /* Alias for compatibility */
+      --navy: #0a1931;
+      --gold: #d4af37;
+      --light-gold: #f4d03f;
+      --white: #ffffff;
+      --light-gray: #f8f9fa;
+      --dark-gray: #6c757d;
     }
 
     body {
-      font-family: 'Outfit', sans-serif;
-      color: var(--text-dark);
+      font-family: 'Inter', sans-serif;
+      color: #333;
       line-height: 1.6;
       scroll-behavior: smooth;
       overflow-x: hidden;
     }
 
     h1, h2, h3, h4, h5, h6 {
-      font-family: 'Manrope', sans-serif;
-      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
     }
 
     .section-title h2 {
@@ -67,7 +61,7 @@
       display: block;
       width: 60px;
       height: 3px;
-      background: var(--accent-warm);
+      background: var(--gold);
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
@@ -75,14 +69,14 @@
 
     .section-title p {
       font-size: 1.1rem;
-      color: var(--warm-gray);
+      color: var(--dark-gray);
       max-width: 700px;
       margin: 0 auto;
     }
 
     /* Header Styles */
     .header {
-      background: var(--primary-dark);
+      background: var(--navy);
       position: fixed;
       top: 0;
       left: 0;
@@ -95,24 +89,19 @@
 
     .header.scrolled {
       padding: 10px 0;
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(10, 25, 49, 0.95);
       backdrop-filter: blur(10px);
     }
 
     .navbar-brand {
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Playfair Display', serif;
       font-size: 1.8rem;
-      font-weight: 800;
-      color: var(--cream-white) !important;
-      transition: color 0.3s ease;
-    }
-
-    .header.scrolled .navbar-brand {
-      color: var(--primary-dark) !important;
+      font-weight: 700;
+      color: var(--white) !important;
     }
 
     .navbar-nav .nav-link {
-      color: var(--cream-white) !important;
+      color: var(--white) !important;
       font-weight: 500;
       padding: 8px 15px;
       margin: 0 5px;
@@ -121,19 +110,15 @@
       position: relative;
     }
 
-    .header.scrolled .navbar-nav .nav-link {
-      color: var(--text-dark) !important;
-    }
-
     .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
-      background: var(--accent-orange);
-      color: var(--cream-white) !important;
+      background: var(--gold);
+      color: var(--navy) !important;
     }
 
-    /* Hero Section with Animations */
+    /* Hero Section */
     .hero {
-      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-medium) 100%);
-      color: var(--cream-white);
+      background: linear-gradient(135deg, var(--navy) 0%, #1a365d 100%);
+      color: var(--white);
       padding: 180px 0 100px;
       position: relative;
       overflow: hidden;
@@ -149,42 +134,27 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
-      opacity: 0.8;
+      opacity: 0.1;
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-title {
+    .hero h1 {
       font-size: 3.5rem;
-      font-weight: 800;
+      font-weight: 700;
       margin-bottom: 1rem;
       line-height: 1.2;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    .hero h2 {
+      font-size: 1.8rem;
+      font-weight: 300;
+      margin-bottom: 2rem;
+      color: var(--gold);
     }
 
     .hero-subtitle {
-      font-size: 1.8rem;
-      font-weight: 500;
-      margin-bottom: 2rem;
-      color: var(--accent-gold);
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeInUp 0.8s ease 0.3s forwards;
-    }
-
-    .hero-description {
       font-size: 1.2rem;
       margin-bottom: 2.5rem;
       max-width: 600px;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeInUp 0.8s ease 0.6s forwards;
     }
 
     .hero-buttons {
@@ -194,15 +164,12 @@
       cursor: pointer;
       position: relative;
       z-index: 1;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeInUp 0.8s ease 0.9s forwards;
     }
 
     .btn-primary {
-      background: linear-gradient(45deg, var(--accent-warm), var(--accent-earth));
+      background: linear-gradient(45deg, var(--gold), var(--light-gold));
       border: none;
-      color: var(--cream-white);
+      color: var(--navy);
       font-weight: 600;
       padding: 12px 30px;
       border-radius: 30px;
@@ -213,14 +180,14 @@
 
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(229, 62, 62, 0.3);
-      color: var(--cream-white);
+      box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+      color: var(--navy);
     }
 
     .btn-outline {
       background: transparent;
-      border: 2px solid var(--accent-orange);
-      color: var(--accent-orange);
+      border: 2px solid var(--gold);
+      color: var(--gold);
       font-weight: 600;
       padding: 10px 28px;
       border-radius: 30px;
@@ -230,51 +197,14 @@
     }
 
     .btn-outline:hover {
-      background: var(--accent-orange);
-      color: var(--cream-white);
-    }
-
-    .hero-profile-img {
-      border-radius: 10px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-      transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
-      transition: all 0.5s ease;
-      border: 3px solid rgba(255, 255, 255, 0.1);
-      opacity: 0;
-      animation: fadeIn 1s ease 0.5s forwards, float 6s ease-in-out infinite 2s;
-    }
-
-    .hero-profile-img:hover {
-      transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
-    }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
-    }
-
-    @keyframes float {
-      0%, 100% {
-        transform: translateY(0) perspective(1000px) rotateY(-5deg) rotateX(5deg);
-      }
-      50% {
-        transform: translateY(-10px) perspective(1000px) rotateY(-5deg) rotateX(5deg);
-      }
+      background: var(--gold);
+      color: var(--navy);
     }
 
     /* Stats Section */
     .stats {
       padding: 80px 0;
-      background: var(--background-cream);
+      background: var(--light-gray);
     }
 
     .stats-item {
@@ -284,14 +214,14 @@
 
     .stats-item i {
       font-size: 2.5rem;
-      color: var(--accent-orange);
+      color: var(--gold);
       margin-bottom: 15px;
     }
 
     .stats-item .purecounter {
       font-size: 3rem;
       font-weight: 700;
-      color: var(--primary-dark);
+      color: var(--navy);
       display: block;
     }
 
@@ -303,7 +233,7 @@
     /* Credibility Bar with Carousel */
     .credibility-bar {
       padding: 60px 0;
-      background: var(--cream-white);
+      background: var(--white);
       overflow: hidden;
     }
 
@@ -369,29 +299,29 @@
     }
 
     .global-highlights h4, .teaching-philosophy h4 {
-      color: var(--primary-dark);
+      color: var(--navy);
       margin-bottom: 15px;
     }
 
     .teaching-philosophy blockquote {
-      border-left: 4px solid var(--accent-orange);
+      border-left: 4px solid var(--gold);
       padding-left: 20px;
       font-style: italic;
       margin: 20px 0;
-      color: var(--primary-dark);
+      color: var(--navy);
     }
 
     /* Speaking Section */
     .speaking {
       padding: 100px 0;
-      background: var(--background-cream);
+      background: var(--light-gray);
     }
 
     .service-card {
-      background: var(--background-light);
+      background: var(--white);
       padding: 40px 30px;
       border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
       transition: all 0.3s ease;
       height: 100%;
       text-align: center;
@@ -405,18 +335,18 @@
 
     .service-card .icon {
       font-size: 3rem;
-      color: var(--accent-orange);
+      color: var(--gold);
       margin-bottom: 1rem;
     }
 
     .service-card h4 {
-      color: var(--primary-dark);
+      color: var(--navy);
       margin-bottom: 15px;
     }
 
     .btn-enquire {
-      background: var(--primary-dark);
-      color: var(--cream-white);
+      background: var(--navy);
+      color: var(--white);
       padding: 10px 25px;
       border-radius: 30px;
       text-decoration: none;
@@ -427,8 +357,8 @@
     }
 
     .btn-enquire:hover {
-      background: var(--accent-orange);
-      color: var(--cream-white);
+      background: var(--gold);
+      color: var(--navy);
     }
 
     /* Research Section */
@@ -454,18 +384,18 @@
     .metric-value {
       font-size: 2.5rem;
       font-weight: 700;
-      color: var(--accent-orange);
+      color: var(--gold);
     }
 
     .metric-label {
-      color: var(--primary-dark);
+      color: var(--navy);
       font-weight: 500;
     }
 
     /* Awards Section */
     .awards {
       padding: 100px 0;
-      background: var(--background-cream);
+      background: var(--light-gray);
     }
 
     .award-category {
@@ -473,12 +403,12 @@
     }
 
     .award-item {
-      background: var(--background-light);
+      background: var(--white);
       padding: 20px;
       border-radius: 10px;
       margin-bottom: 15px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-      border-left: 4px solid var(--accent-orange);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      border-left: 4px solid var(--gold);
     }
 
     /* Innovations Section */
@@ -487,10 +417,10 @@
     }
 
     .innovation-card {
-      background: var(--background-light);
+      background: var(--white);
       border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
       transition: all 0.3s ease;
       margin-bottom: 30px;
     }
@@ -514,7 +444,7 @@
     /* Media Section */
     .media {
       padding: 100px 0;
-      background: var(--background-cream);
+      background: var(--light-gray);
     }
 
     .media-tabs {
@@ -526,22 +456,22 @@
     }
 
     .media-tabs .nav-link {
-      color: var(--primary-dark);
+      color: var(--navy);
       font-weight: 500;
       padding: 12px 25px;
       border-radius: 30px;
       border: none;
-      background: var(--cream-white);
+      background: var(--white);
       transition: all 0.3s ease;
     }
 
     .media-tabs .nav-link.active {
-      background: var(--accent-orange);
-      color: var(--cream-white);
+      background: var(--gold);
+      color: var(--navy);
     }
 
     .media-item {
-      background: var(--cream-white);
+      background: var(--white);
       padding: 25px;
       border-radius: 10px;
       margin-bottom: 20px;
@@ -568,10 +498,10 @@
     }
 
     .contact-form {
-      background: var(--background-light);
+      background: var(--white);
       padding: 30px;
       border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
 
     .info-item {
@@ -582,20 +512,20 @@
 
     .info-item i {
       font-size: 1.5rem;
-      color: var(--accent-orange);
+      color: var(--gold);
       margin-right: 15px;
       margin-top: 5px;
     }
 
     /* Footer */
     .footer {
-      background: var(--primary-dark);
-      color: var(--cream-white);
+      background: var(--navy);
+      color: var(--white);
       padding: 60px 0 20px;
     }
 
     .footer h5 {
-      color: var(--accent-orange);
+      color: var(--gold);
       margin-bottom: 20px;
       font-size: 1.2rem;
     }
@@ -621,7 +551,7 @@
     }
 
     .footer a:hover {
-      color: var(--accent-orange);
+      color: var(--gold);
     }
 
     .footer hr {
@@ -643,14 +573,14 @@
       height: 40px;
       border-radius: 50%;
       background: rgba(255,255,255,0.1);
-      color: var(--cream-white);
+      color: var(--white);
       transition: all 0.3s ease;
       text-decoration: none;
     }
 
     .social-links a:hover {
-      background: var(--accent-orange);
-      color: var(--cream-white);
+      background: var(--gold);
+      color: var(--navy);
       transform: translateY(-2px);
     }
 
@@ -661,8 +591,8 @@
       right: 20px;
       width: 50px;
       height: 50px;
-      background: var(--accent-orange);
-      color: var(--cream-white);
+      background: var(--gold);
+      color: var(--navy);
       border-radius: 50%;
       text-align: center;
       line-height: 50px;
@@ -674,9 +604,9 @@
     }
 
     .scroll-top:hover {
-      background: var(--accent-warm);
+      background: var(--light-gold);
       transform: translateY(-2px);
-      color: var(--cream-white);
+      color: var(--navy);
     }
 
     /* Animation for sections */
@@ -698,7 +628,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(26, 54, 93, 0.9);
+      background-color: rgba(10, 25, 49, 0.9);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -716,7 +646,7 @@
     }
     
     .modal-content {
-      background-color: var(--cream-white);
+      background-color: white;
       border-radius: 15px;
       max-width: 500px;
       width: 100%;
@@ -742,23 +672,23 @@
     }
     
     .modal-title {
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Playfair Display', serif;
       font-size: 1.8rem;
-      color: var(--primary-dark);
+      color: #0a1931;
       margin-bottom: 15px;
       font-weight: 600;
     }
     
     .modal-message {
-      color: var(--warm-gray);
+      color: #6c757d;
       line-height: 1.6;
       margin-bottom: 25px;
     }
     
     .btn-close-modal {
-      background: linear-gradient(45deg, var(--accent-warm), var(--accent-earth));
+      background: linear-gradient(45deg, #d4af37, #f4d03f);
       border: none;
-      color: var(--cream-white);
+      color: #0a1931;
       font-weight: 600;
       padding: 12px 30px;
       border-radius: 30px;
@@ -769,29 +699,7 @@
     
     .btn-close-modal:hover {
       transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(229, 62, 62, 0.4);
-    }
-
-    /* Typewriter Effect */
-    .typewriter {
-      overflow: hidden;
-      border-right: .15em solid var(--accent-orange);
-      white-space: nowrap;
-      margin: 0 auto;
-      letter-spacing: .15em;
-      animation: 
-        typing 3.5s steps(40, end),
-        blink-caret .75s step-end infinite;
-    }
-
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
-    }
-
-    @keyframes blink-caret {
-      from, to { border-color: transparent }
-      50% { border-color: var(--accent-orange); }
+      box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
     }
 
     /* Responsive Design */
@@ -803,11 +711,11 @@
     }
 
     @media (max-width: 992px) {
-      .hero-title {
+      .hero h1 {
         font-size: 3rem;
       }
       
-      .hero-subtitle {
+      .hero h2 {
         font-size: 1.6rem;
       }
       
@@ -845,16 +753,16 @@
         text-align: center;
       }
       
-      .hero-title {
+      .hero h1 {
         font-size: 2.5rem;
         line-height: 1.3;
       }
       
-      .hero-subtitle {
+      .hero h2 {
         font-size: 1.4rem;
       }
       
-      .hero-description {
+      .hero-subtitle {
         font-size: 1.1rem;
       }
       
@@ -984,11 +892,11 @@
     }
 
     @media (max-width: 576px) {
-      .hero-title {
+      .hero h1 {
         font-size: 2.2rem;
       }
       
-      .hero-subtitle {
+      .hero h2 {
         font-size: 1.2rem;
       }
       
@@ -1027,7 +935,7 @@
     /* Fix for navbar collapse on mobile */
     @media (max-width: 991.98px) {
       .navbar-collapse {
-        background: var(--primary-dark);
+        background: var(--navy);
         padding: 20px;
         margin-top: 10px;
         border-radius: 10px;
@@ -1065,7 +973,7 @@
   <!-- Success Modal -->
   <div id="successModal" class="modal-overlay">
     <div class="modal-content">
-      <img src="assets/vid/tick.gif" alt="Success" class="success-gif">
+      <img src="assets\vid\tick.gif" alt="Success" class="success-gif">
       <h3 class="modal-title">Message Sent Successfully</h3>
       <p class="modal-message">Your message has been delivered to Professor Abejide Ade-Ibijola. His team will contact you shortly.</p>
       <button class="btn-close-modal" id="closeModal">Close</button>
@@ -1100,10 +1008,10 @@
   <section id="hero" class="hero">
     <div class="container">
       <div class="row align-items-center">
-        <div class="col-lg-6 hero-content">
-          <h1 class="hero-title">Professor Abejide Ade-Ibijola</h1>
-          <h2 class="hero-subtitle">Africa's Leading AI Professor | Global Speaker | Strategic Advisor</h2>
-          <p class="hero-description">Recognised internationally for pioneering Artificial Intelligence innovations, empowering industries and governments, and shaping the future of Africa's digital transformation.</p>
+        <div class="col-lg-6">
+          <h1>Professor Abejide Ade-Ibijola</h1>
+          <h2>Africa's Leading AI Professor | Global Speaker | Strategic Advisor</h2>
+          <p class="hero-subtitle">Recognised internationally for pioneering Artificial Intelligence innovations, empowering industries and governments, and shaping the future of Africa's digital transformation.</p>
           
           <div class="hero-buttons">
             <a href="#contact" class="btn btn-primary hero-btn" role="button" aria-label="Book Professor Ade-Ibijola for a talk">Book Me for a Talk</a>
@@ -1112,8 +1020,7 @@
           </div>
         </div>
         <div class="col-lg-6">
-          <!-- Updated to use your local image -->
-          <img src="assets/img/profNew.jpg" class="img-fluid hero-profile-img" alt="Professor Abejide Ade-Ibijola" loading="lazy">
+          <img src="https://www.uj.ac.za/wp-content/uploads/2021/10/webinar-photos10.png" class="img-fluid rounded shadow" alt="Professor Abejide Ade-Ibijola" loading="lazy">
         </div>
       </div>
     </div>
@@ -1410,7 +1317,7 @@
 
         <div class="col-lg-4 col-md-6">
           <div class="innovation-card">
-            <div class="innovation-img" style="background-image: url('assets/img/portfolio/books-1.jpg');"></div>
+            <div class="innovation-img" style="background-image: url('assets/img/AIgovernment2.jpg');"></div>
             <div class="innovation-content">
               <h4>Teaching Evaluation Web App</h4>
               <p>Saves University of Johannesburg R2 million annually in license fees, used by 50,000+ students and staff.</p>
@@ -1420,7 +1327,7 @@
 
         <div class="col-lg-4 col-md-6">
           <div class="innovation-card">
-            <div class="innovation-img" style="background-image: url('assets/img/AIProf.jpg');"></div>
+            <div class="innovation-img" style="background-image: url('assets/img/AIgovernment2.jpg');"></div>
             <div class="innovation-content">
               <h4>AI CIB Apps</h4>
               <p>Platform with five AI-driven Corporate and Investment Banking applications for Standard Bank Group.</p>
@@ -1430,7 +1337,7 @@
 
         <div class="col-lg-4 col-md-6">
           <div class="innovation-card">
-            <div class="innovation-img" style="background-image: url('assets/img/zuluPy.jpg');"></div>
+            <div class="innovation-img" style="background-image: url('assets/img/AIgovernment2.jpg');"></div>
             <div class="innovation-content">
               <h4>Zulu-Python</h4>
               <p>Software tool that allows for coding in IsiZulu using Python-like syntax.</p>
@@ -1441,7 +1348,7 @@
 
       <div class="text-center mt-4">
         <p>With over <strong>80 proprietary technological tools</strong> developed, Professor Ade-Ibijola's innovations span AI algorithms, serious games, VR/AR solutions, and digital platforms.</p>
-        <a href="https://appsgritlabafrica.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn-enquire" role="button" aria-label="Explore innovation portfolio">Explore Full Innovation Portfolio</a>
+        <a href="#contact" class="btn-enquire" role="button" aria-label="Explore innovation portfolio">Explore Full Innovation Portfolio</a>
       </div>
     </div>
   </section>
@@ -1550,7 +1457,15 @@
             <i class="bi bi-envelope"></i>
             <div>
               <h3>Email</h3>
-              <p><a href="mailto:abejide@gritlabafrica.org">abejide@gritlabafrica.org</a></p>
+              <p><a href="mailto:abejideai@uj.ac.za">abejideai@uj.ac.za</a><br><a href="mailto:abejide@gritlabafrica.org">abejide@gritlabafrica.org</a></p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <i class="bi bi-telephone"></i>
+            <div>
+              <h3>Phone</h3>
+              <p><a href="tel:+27732920243">+27 (073) 292 0243</a></p>
             </div>
           </div>
 
@@ -1636,7 +1551,8 @@
         <div class="col-lg-3 col-md-6 mb-4">
           <h5>Contact Information</h5>
           <ul>
-                      
+            <li><i class="bi bi-envelope me-2"></i> <a href="mailto:abejideai@uj.ac.za">abejideai@uj.ac.za</a></li>
+            <li><i class="bi bi-telephone me-2"></i> <a href="tel:+27732920243">+27 (073) 292 0243</a></li>
             <li><i class="bi bi-geo-alt me-2"></i> Johannesburg Business School, UJ</li>
             <li><i class="bi bi-building me-2"></i> Johannesburg, South Africa</li>
           </ul>
@@ -1646,6 +1562,7 @@
           <h5>Initiatives</h5>
           <ul>
             <li><a href="https://www.gritlabafrica.org" target="_blank" rel="noopener noreferrer">GRIT Lab Africa</a></li>
+            <li><a href="#" aria-disabled="true">Machines With Minds</a></li>
             <li><a href="https://www.uj.ac.za" target="_blank" rel="noopener noreferrer">University of Johannesburg</a></li>
             <li><a href="#" aria-disabled="true">Research Group on Data & AI</a></li>
           </ul>
