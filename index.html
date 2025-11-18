@@ -54,11 +54,8 @@
       line-height: 1.6;
       scroll-behavior: smooth;
       overflow-x: hidden;
-      background-image: url('assets/img/profNew.jpg');
-      background-size: cover;
-      background-position: right top;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
+      /* Remove background from body to prevent duplication */
+      background: #ffffff; /* Fallback color */
     }
 
     h1, h2, h3, h4, h5, h6 {
@@ -175,20 +172,20 @@
       width: 100%;
       z-index: 999;
       box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-      padding: 15px 0;
+      padding: 4px 0;
       transition: all 0.3s ease;
       border-bottom: 1px solid rgba(184, 134, 11, 0.1);
     }
 
     .header.scrolled {
-      padding: 10px 0;
+      padding: 4px 0;
       background: rgba(235, 235, 235, 0.95);
       box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
     }
 
     .navbar-brand {
       font-family: 'Manrope', sans-serif;
-      font-size: 1.8rem;
+      font-size: 1.1rem;
       font-weight: 900;
       color: var(--accent-gold) !important;
       transition: all 0.3s ease;
@@ -203,12 +200,13 @@
     .navbar-nav .nav-link {
       color: var(--text-dark) !important;
       font-weight: 700;
-      padding: 8px 15px;
-      margin: 0 5px;
+      padding: 4px 10px;
+      margin: 0 2px;
       border-radius: 4px;
       transition: all 0.3s ease;
       position: relative;
       letter-spacing: 0.3px;
+      font-size: 0.85rem;
     }
 
     .header.scrolled .navbar-nav .nav-link {
@@ -222,18 +220,27 @@
       border-radius: 0px;
     }
 
-    /* Hero Section - Full Screen Background Image with Text Overlay */
+    /* Hero Section - Full Picture with Controlled Zoom */
     .hero {
       position: relative;
       min-height: 100vh;
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: center;
-      padding: 180px 0 100px;
+      padding: 100px 0 60px;
       overflow: hidden;
+      /* Full image with controlled zoom and proper positioning */
+      background: 
+        linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.2) 0%,
+          rgba(0, 0, 0, 0.6) 100%
+        ),
+        url('assets/img/profNew.jpg') center 85% / 70% no-repeat;
+      background-attachment: fixed;
     }
 
-    /* Hero Background Image Pushed Back */
+    /* Remove any duplicate background declarations */
     .hero::before {
       display: none;
     }
@@ -243,30 +250,34 @@
       z-index: 2;
       text-align: center;
       max-width: 900px;
-      padding: 40px;
+      padding: 40px 20px;
+      margin-bottom: 40px;
     }
 
+    /* Enhanced text readability */
     .hero-title {
       font-family: 'Poppins', sans-serif;
       font-size: 5.5rem;
       font-weight: 800;
-      color: #000000;
+      color: #ffffff;
       line-height: 1.1;
       margin-bottom: 1.5rem;
       opacity: 0;
       animation: fadeInUp 0.8s ease forwards, glow 3s ease-in-out 0.8s infinite;
       letter-spacing: -1px;
+      text-shadow: 3px 3px 12px rgba(0,0,0,0.9), 1px 1px 6px rgba(0,0,0,0.8);
     }
 
     .hero-subtitle {
       font-family: 'Poppins', sans-serif;
-      font-size: 4rem;
+      font-size: 2.8rem;
       font-weight: 600;
-      color: var(--cream-white);
-      margin-bottom: 2rem;
+      color: #ffffff;
+      margin-bottom: 1.5rem;
       opacity: 0;
       animation: fadeInUp 0.8s ease 0.2s forwards, glow 3s ease-in-out 1s infinite;
       letter-spacing: 0.5px;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.9), 1px 1px 5px rgba(0,0,0,0.8);
     }
 
     .hero-subtitle .cursor {
@@ -290,13 +301,17 @@
 
     .hero-description {
       font-family: 'Poppins', sans-serif;
-      font-size: 1.35rem;
-      margin-bottom: 2rem;
+      font-size: 1.15rem;
+      margin-bottom: 1.8rem;
       opacity: 0;
       transform: translateY(30px);
       animation: fadeInUp 0.8s ease 0.4s forwards;
-      line-height: 1.8;
-      color: #000000;
+      line-height: 1.7;
+      color: #ffffff;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.85), 1px 1px 4px rgba(0,0,0,0.7);
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .hero-buttons {
@@ -316,13 +331,14 @@
 
     .hero-trusted-label {
       font-size: 0.95rem;
-      color: #000000;
+      color: rgba(255,255,255,0.9);
       font-weight: 500;
       letter-spacing: 0.5px;
       margin: 0;
       padding-bottom: 15px;
-      border-bottom: 2px solid rgba(184, 134, 11, 0.3);
+      border-bottom: 2px solid rgba(255, 255, 255, 0.4);
       display: inline-block;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
     }
 
     .hero-trusted-section .collaborators-carousel {
@@ -349,12 +365,14 @@
     }
 
     .hero-description {
-      font-size: 1.2rem;
-      margin-bottom: 2.5rem;
-      max-width: 600px;
+      font-size: 1.15rem;
+      margin-bottom: 1.8rem;
+      max-width: 700px;
       opacity: 0;
       transform: translateY(30px);
       animation: fadeInUp 0.8s ease 0.6s forwards;
+      color: #ffffff;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.85), 1px 1px 4px rgba(0,0,0,0.7);
     }
 
     .hero-buttons {
@@ -370,9 +388,30 @@
     }
 
     .btn-primary {
-      background: rgba(184, 134, 11, 0.25);
-      border: 2px solid var(--accent-gold);
-      color: var(--cream-white);
+      background: #ffffff;
+      border: 2px solid #ffffff;
+      color: #000000;
+      font-weight: 600;
+      padding: 14px 32px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+      background: var(--accent-warm);
+      border-color: var(--accent-warm);
+      color: #ffffff;
+    }
+
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.15);
+      border: 2px solid #ffffff;
+      color: #ffffff;
       font-weight: 600;
       padding: 12px 30px;
       border-radius: 8px;
@@ -381,35 +420,14 @@
       display: inline-block;
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      box-shadow: 0 8px 32px rgba(184, 134, 11, 0.1), inset 0 0 15px rgba(255, 255, 255, 0.1);
-    }
-
-    .btn-primary:hover {
-      transform: scale(1.05);
-      box-shadow: 0 12px 40px rgba(184, 134, 11, 0.25), inset 0 0 20px rgba(255, 255, 255, 0.15);
-      color: var(--cream-white);
-    }
-
-    .btn-outline {
-      background: rgba(255, 255, 255, 0.08);
-      border: 2px solid var(--accent-gold);
-      color: var(--accent-gold);
-      font-weight: 600;
-      padding: 10px 28px;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      box-shadow: 0 8px 32px rgba(184, 134, 11, 0.1), inset 0 0 15px rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
     }
 
     .btn-outline:hover {
-      background: rgba(184, 134, 11, 0.2);
-      color: var(--cream-white);
-      transform: scale(1.05);
-      box-shadow: 0 12px 40px rgba(184, 134, 11, 0.25), inset 0 0 20px rgba(255, 255, 255, 0.15);
+      background: #ffffff;
+      color: #000000;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(255, 255, 255, 0.4);
     }
 
     .hero-profile-img {
@@ -452,6 +470,8 @@
 
     /* Stats Section */
     .stats {
+      position: relative;
+      z-index: 10;
       padding: 80px 0;
       background: #F5F5F5;
     }
@@ -460,31 +480,13 @@
       text-align: center;
       padding: 30px 15px;
       opacity: 0;
-      animation: fadeInUp 0.6s ease forwards, glowBox 3s ease-in-out 0.5s infinite;
-      transition: all 0.5s ease;
+      animation: fadeInUp 0.6s ease forwards;
     }
 
-    .stats-item:nth-child(1) { animation-delay: 0.1s, 0.5s; }
-    .stats-item:nth-child(2) { animation-delay: 0.2s, 0.6s; }
-    .stats-item:nth-child(3) { animation-delay: 0.3s, 0.7s; }
-    .stats-item:nth-child(4) { animation-delay: 0.4s, 0.8s; }
-
-    /* Coming together on hover */
-    .stats-item:hover {
-      animation: cometogether1 2.5s ease-out forwards;
-    }
-
-    .stats-item:nth-child(2):hover {
-      animation: cometogether2 2.5s ease-out forwards;
-    }
-
-    .stats-item:nth-child(3):hover {
-      animation: cometogether3 2.5s ease-out forwards;
-    }
-
-    .stats-item:nth-child(4):hover {
-      animation: cometogether4 2.5s ease-out forwards;
-    }
+    .stats-item:nth-child(1) { animation-delay: 0.1s; }
+    .stats-item:nth-child(2) { animation-delay: 0.2s; }
+    .stats-item:nth-child(3) { animation-delay: 0.3s; }
+    .stats-item:nth-child(4) { animation-delay: 0.4s; }
 
     .stats-item i {
       font-size: 2.5rem;
@@ -560,6 +562,8 @@
 
     /* Credibility Box Section */
     .credibility-box {
+      position: relative;
+      z-index: 10;
       padding: 50px 0;
       background: linear-gradient(135deg, rgba(184, 134, 11, 0.08), rgba(0, 0, 0, 0.05));
       border-top: 1px solid rgba(184, 134, 11, 0.2);
@@ -1143,6 +1147,16 @@
       .hero {
         padding: 120px 0 60px;
         text-align: center;
+        background: 
+          linear-gradient(
+            rgba(0, 0, 0, 0.3), 
+            rgba(0, 0, 0, 0.3)
+          ),
+          url('assets/img/profNew.jpg') center center / cover no-repeat;
+      }
+      
+      .hero-content {
+        margin-bottom: 20px;
       }
       
       .hero-title {
@@ -1413,9 +1427,7 @@
             <a href="#research" class="btn btn-outline hero-btn" role="button" aria-label="Explore Professor Ade-Ibijola's research">Explore My Research</a>
           </div>
 
-          <div class="hero-trusted-section">
-            <p class="hero-trusted-label">Trusted by Global Institutions</p>
-          </div>
+          
         </div>
       </div>
     </div>
