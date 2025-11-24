@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Talks - Professor Abejide Ade-Ibijola</title>
+  <meta name="description" content="Watch Professor Abejide Ade-Ibijola's inspiring talks on AI, Digital Transformation, and Innovation across Africa and globally.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-dark: #1A202C;
+      --primary-medium: #2D3748;
+      --accent-warm: #B8860B;
+      --accent-earth: #DAA520;
+      --background-light: #F7FAFC;
+      --background-cream: #EDF2F7;
+      --text-dark: #2D3748;
+      --text-light: #4A5568;
+      --cream-white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-dark);
+      line-height: 1.6;
+      background: var(--background-light);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 700;
+    }
+
+    /* Header Styles */
+    .header {
+      background: rgba(245, 245, 245, 0.95);
+      -webkit-backdrop-filter: blur(15px);
+      backdrop-filter: blur(15px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(184, 134, 11, 0.1);
+    }
+
+    .navbar-brand {
+      font-family: 'Manrope', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: var(--accent-warm) !important;
+      letter-spacing: -0.5px;
+    }
+
+    .navbar-nav .nav-link {
+      color: var(--text-dark) !important;
+      font-weight: 600;
+      padding: 8px 15px;
+      margin: 0 5px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+      background: rgba(184, 134, 11, 0.2);
+      color: var(--accent-warm) !important;
+    }
+
+    /* Page Header */
+    .page-header {
+      padding: 120px 0 60px;
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-medium) 100%);
+      color: white;
+      text-align: center;
+    }
+
+    .page-header h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: white;
+    }
+
+    .page-header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Talks Section */
+    .talks-section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: var(--primary-dark);
+      margin-bottom: 1rem;
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--accent-warm);
+    }
+
+    .talk-card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      margin-bottom: 30px;
+      height: 100%;
+    }
+
+    .talk-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(184, 134, 11, 0.2);
+    }
+
+    .talk-video {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      height: 0;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .talk-video iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .talk-content {
+      padding: 25px;
+    }
+
+    .talk-title {
+      font-size: 1.3rem;
+      color: var(--primary-dark);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .talk-meta {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+    }
+
+    .talk-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    .talk-meta i {
+      color: var(--accent-warm);
+    }
+
+    .talk-description {
+      color: var(--text-light);
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+
+    .talk-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      background: var(--background-cream);
+      color: var(--accent-warm);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    /* Filter Section */
+    .filter-section {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .filter-btn {
+      background: white;
+      border: 2px solid var(--accent-warm);
+      color: var(--accent-warm);
+      padding: 10px 25px;
+      margin: 5px;
+      border-radius: 25px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--accent-warm);
+      color: white;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--primary-dark);
+      color: white;
+      padding: 40px 0 20px;
+      text-align: center;
+    }
+
+    .back-to-home {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: var(--accent-warm);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .back-to-home:hover {
+      color: var(--accent-earth);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .page-header h1 {
+        font-size: 2rem;
+      }
+
+      .page-header p {
+        font-size: 1rem;
+      }
+
+      .section-title h2 {
+        font-size: 2rem;
+      }
+
+      .talk-title {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Professor Abejide Ade-Ibijola</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation" title="Toggle navigation menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html#hero">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+            <li class="nav-item"><a class="nav-link active" href="talks.html">Talks</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html#research">Research</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>Inspiring Talks & Keynotes</h1>
+      <p>Watch Professor Abejide Ade-Ibijola share insights on AI, Digital Transformation, Innovation, and Africa's technological future</p>
+    </div>
+  </section>
+
+  <!-- Talks Section -->
+  <section class="talks-section">
+    <div class="container">
+      <!-- Filter Buttons -->
+      <div class="filter-section">
+        <button class="filter-btn active" data-filter="all">All Talks</button>
+        <button class="filter-btn" data-filter="ai">Artificial Intelligence</button>
+        <button class="filter-btn" data-filter="innovation">Innovation</button>
+        <button class="filter-btn" data-filter="leadership">Leadership</button>
+        <button class="filter-btn" data-filter="education">Education</button>
+      </div>
+
+      <!-- Talks Grid -->
+      <div class="row" id="talks-container">
+        
+        <!-- Talk Card 1 - Example -->
+        <div class="col-lg-6 col-md-12 talk-item" data-category="ai innovation">
+          <div class="talk-card">
+            <div class="talk-video">
+              <!-- Replace with actual YouTube embed -->
+              <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="The Future of AI in Africa - Professor Abejide Ade-Ibijola" allowfullscreen></iframe>
+            </div>
+            <div class="talk-content">
+              <h3 class="talk-title">The Future of AI in Africa</h3>
+              <div class="talk-meta">
+                <span><i class="bi bi-calendar-event"></i> November 2024</span>
+                <span><i class="bi bi-geo-alt"></i> Johannesburg, SA</span>
+                <span><i class="bi bi-people"></i> 2,000+ Attendees</span>
+              </div>
+              <p class="talk-description">
+                A comprehensive discussion on how Artificial Intelligence is transforming Africa's digital landscape and creating unprecedented opportunities for innovation and growth.
+              </p>
+              <div class="talk-tags">
+                <span class="tag">AI</span>
+                <span class="tag">Innovation</span>
+                <span class="tag">Africa</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Talk Card 2 - Example -->
+        <div class="col-lg-6 col-md-12 talk-item" data-category="leadership education">
+          <div class="talk-card">
+            <div class="talk-video">
+              <!-- Replace with actual YouTube embed -->
+              <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Leading Through Digital Transformation - Professor Abejide Ade-Ibijola" allowfullscreen></iframe>
+            </div>
+            <div class="talk-content">
+              <h3 class="talk-title">Leading Through Digital Transformation</h3>
+              <div class="talk-meta">
+                <span><i class="bi bi-calendar-event"></i> October 2024</span>
+                <span><i class="bi bi-geo-alt"></i> Lagos, Nigeria</span>
+                <span><i class="bi bi-people"></i> 1,500+ Attendees</span>
+              </div>
+              <p class="talk-description">
+                Insights on leadership strategies needed to navigate the complex landscape of digital transformation in modern organizations.
+              </p>
+              <div class="talk-tags">
+                <span class="tag">Leadership</span>
+                <span class="tag">Digital Transformation</span>
+                <span class="tag">Strategy</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add more talk cards here -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <a href="index.html" class="back-to-home">
+        <i class="bi bi-arrow-left"></i> Back to Home
+      </a>
+      <p>&copy; 2024 Professor Abejide Ade-Ibijola. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Filter functionality
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const talkItems = document.querySelectorAll('.talk-item');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterBtns.forEach(b => b.classList.remove('active'));
+        // Add active class to clicked button
+        btn.classList.add('active');
+
+        const filter = btn.getAttribute('data-filter');
+
+        talkItems.forEach(item => {
+          if (filter === 'all') {
+            item.style.display = 'block';
+          } else {
+            const categories = item.getAttribute('data-category');
+            if (categories.includes(filter)) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
